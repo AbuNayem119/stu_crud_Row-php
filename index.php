@@ -34,9 +34,9 @@
                 $sql = "SELECT * FROM admin WHERE email='$u_e' OR uname='$u_e'";
                 $data = $conn -> query($sql);
                 $all_data = $data -> fetch_assoc();
-                $fetch_pass_data = $all_data['pass'];
+                // $fetch_pass_data = $all_data['pass'];
 
-                if (password_verify($pass, $fetch_pass_data) == false) {
+                if (password_verify($pass, $all_data['pass']) == false) {
                     $mess = "<p class='alert alert-danger'> Password is Incorrect !<button style='float:right;' class='close' data-bs-dismiss='alert' >&times;</button></p>";
 
                 }else{
